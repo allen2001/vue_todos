@@ -1,0 +1,269 @@
+html ,body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	background: #f5f5f5;
+	color: #4d4d4d;
+	min-width: 230px;
+	max-width: 550px;
+	margin: 0 auto;
+	font-weight: 300;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: no-repeat;
+	vertical-align: baseline;
+	font-size: 100%;
+	outline: none;
+	cursor: pointer;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+.todo_app {
+	background-color: #fff;
+	margin: 130px 0 40px 0;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1)
+
+}
+
+.header {
+
+}
+
+.todo_app h1 {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: -160px;
+	font-size: 100px;
+	color: rgba(175, 47, 47, 0.15);
+	font-weight: 100;
+	text-align: center;
+}
+
+.new_todo, .edit {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 6px;
+	line-height: 1.4em;
+	font-size: 24px;
+	border: 1px solid #999;
+	outline: none;
+	box-sizing: border-box;
+	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.new_todo {
+	border: none;
+	padding: 16px 16px 16px 60px;
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+.main {
+	position: relative;
+	border-top: 1px solid #e6e6e6;
+}
+
+.toggle_all {
+	position: absolute;
+	left: 18px;
+	top: -52px;
+	font-size: 24px;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.toggle_all:before {
+	content: "❯";
+	color: #e6e6e6;
+}
+
+.toggle_all:checked:before {
+	color: #737373;
+}
+
+.todo_list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.todo_list li {
+	position: relative;
+	font-size: 24px;
+	border-bottom: 1px solid #ededed;
+
+}
+
+.todo_list li:last-child {
+	border: none;
+}
+
+.todo_list li .toggle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	margin-left: 5px;
+	width: 40px;
+	height: 40px;
+	appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.todo_list li .toggle:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: solid 1px #eee;
+	border-radius: 50%;
+}
+
+.todo_list li .toggle:checked:after {
+	content: "ok";
+	border-color: #42b983;
+	line-height: 39px;
+	text-align: center;
+	font-size: 20px;
+	font-style: italic;
+	color: #42b983;
+}
+
+.todo_list li label {
+	margin-left: 45px;
+	padding: 15px 60px 15px 15px;
+	display: block;
+	line-height: 1.2;
+	transition: color .4s;
+}
+
+.todo_list li.completed label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+
+.todo_list li .destory {
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	font-size: 30px;
+	color: #cc9a9a;
+	outline: none;
+	cursor: pointer;
+}
+
+.todo_list li:hover .destory {
+	display: block;
+}
+
+.todo_list li .destory:hover {
+	color: #af5b5e;
+}
+
+.todo_list li .destory:after {
+	content: "×"
+}
+
+.todo_list li .edit {
+	display: none;
+	margin-left: 45px;
+	padding: 15px;
+	line-height: 1.2;
+	width: 505px;
+}
+
+.todo_list li.editing .edit {
+	display: block;
+}
+
+.todo_list li.editing .view {
+	display: none;
+}
+
+.footer {
+	box-sizing: border-box;
+	position: relative;
+	border-top: 1px solid #e6e6e6;
+	height: 40px;
+	padding: 8px 16px;
+	text-align: center;
+	color: #777;
+}
+
+.count {
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+}
+
+.todo_tab {
+	display: inline-block;
+	height: 24px;
+}
+
+.todo_tab li {
+	box-sizing: border-box;
+	float: left;
+	height: 24px;
+	line-height: 22px;
+	text-align: center;
+	margin: 0 5px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.todo_tab li a {
+	display: block;
+	text-decoration: none;
+	border: solid 1px transparent;
+	border-radius: 3px;
+	padding: 0 7px;
+	color: #777;
+}
+
+.todo_tab li a:hover {
+	border-color: #eee;
+}
+
+.todo_tab li a.active {
+	border-color: #eed4d4;
+}
+
+.del_all {
+	float: right;
+	height: 24px;
+	line-height: 24px;
+	color: #777;
+}

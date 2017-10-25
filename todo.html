@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>todo</title>
+	<link rel="stylesheet" href="css/todo.css">
+</head>
+<body>
+	<section class="todo_app" id="todo_app">
+		<header class="header">
+			<h1>todos</h1>
+			<input type="text" autofocus="autofocus" autocomplete="on" placeholder="你需要做点什么?" class="new_todo" v-model="newTodo" @keyup.enter="addTodo">
+		</header>
+		<section class="main" v-show="todos.length" v-cloak>
+			<input type="checkbox" class="toggle_all" v-model="allCompleted" @click="toggleAll">
+			<ul class="todo_list">
+				<li class="todo" v-for="item in filteredTodos" :class="{completed: item.completed, editing: editedTodo == item}">
+					<div class="view">
+						<input type="checkbox" class="toggle" v-model="item.completed">
+						<label @dblclick="editTodo(item)">{{ item.des }}</label>
+						<button type="button" class="destory" @click="removeTodo(item)"></button>
+					</div>
+					<input type="text" class="edit" v-model="item.des" @blur="doneEdit(item)" @keyup.enter="doneEdit(item)" @keyup.esc="cancelEdit(item)" v-todo-focus="editedTodo == item">
+				</li>
+			</ul>
+		</section>
+		<footer class="footer" v-show="todos.length" v-cloak>
+			<span class="count">剩余<em>{{ leftTasks }}</em>个任务</span>
+			<ul class="todo_tab">
+				<!-- <li :class="{ active: tabBol == 0 }" @click="changeTab(0)">所有的</li>
+				<li :class="{ active: tabBol == 1 }" @click="changeTab(1)">未完成</li>
+				<li :class="{ active: tabBol == 2 }" @click="changeTab(2)">已完成</li> -->
+				<li><a href="#/all" :class="{ active: visibility == 'all' }">全部</a></li>
+				<li><a href="#/active" :class="{ active: visibility == 'active' }">未完成</a></li>
+				<li><a href="#/completed" :class="{ active: visibility == 'completed' }">已完成</a></li>
+			</ul>
+			<button type="button" class="del_all" @click="clearCompleted" v-show="isCompleted">清除已完成的任务</button>
+		</footer>
+	</section>	
+
+	<script type="text/javascript" src="libs/vue.js"></script>
+	<script type="text/javascript" src="js/store.js"></script>
+	<script type="text/javascript" src="js/todo.js"></script>
+</body>
+</html>
